@@ -1,7 +1,15 @@
 <h3> {{greeting}} </h3>
 
-<ul>
-    <li ng-repeat="d in data">
-        {{d.product_name}}
-    </li>
-</ul>
+
+<div class="col-md-3">
+    <select ng-model="category" ng-options="item.id as item.name for item in category">
+        <option value="">Select Category</option>
+    </select>
+</div>
+<div class="col-md-9">
+    <ul>
+        <li ng-repeat="d in data">
+            {{d.product_name}}
+        </li>
+    </ul>
+</div>
