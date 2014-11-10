@@ -1,7 +1,8 @@
 var app = angular.module('myApp', ['ngRoute']);
 
 app.config(function($httpProvider, $routeProvider) {
-   
+
+    $httpProvider.interceptors.push('globalRequestInterceptor');
 
     $routeProvider
             .when('/', {
@@ -16,6 +17,3 @@ app.config(function($httpProvider, $routeProvider) {
                 redirectTo: '/'
             });
 });
-
-
-  
