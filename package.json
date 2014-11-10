@@ -1,16 +1,13 @@
 {
   "name": "angular",
-  "version": "0.0.0",
-  "description": "angular\r =======",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "1.0.0",
+  "description": "Basic angular app structure",
+  "main": "index.html",
   "repository": {
     "type": "git",
     "url": "https://github.com/yeasinhossain-dsi/angular.git"
   },
-  "author": "",
+  "author": "Md. Yeasin Hossain",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yeasinhossain-dsi/angular/issues"

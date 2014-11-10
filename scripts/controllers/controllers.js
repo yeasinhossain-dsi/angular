@@ -43,6 +43,6 @@ app.controller('sidebar', function($scope, template){
     
     $scope.msg = function(item){
         console.log( item );        
-    }
+    };
     
-})
+});

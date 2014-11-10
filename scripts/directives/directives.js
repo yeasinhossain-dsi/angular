@@ -3,4 +3,4 @@ app.directive('sideBar', function(){
         restrict: 'A',
         templateUrl: 'templates/directives/sidebar.html'
     };
-})
+});

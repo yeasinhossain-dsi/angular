@@ -12,7 +12,7 @@ app.service('productCategoryService', function($http) {
             params: this.data,
             nointercept: true
         });
-    }
+    };
     
     return this;
 });
@@ -31,7 +31,7 @@ app.service('productsService', function($http) {
             params: this.data,
             nointercept: true
         });
-    }
+    };
     
     return this;
 });
