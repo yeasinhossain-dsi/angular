@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app='myApp'>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Angular App</title>
+
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- Vendor Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-resource.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.min.js"></script>        
+    </head>
+    <body>
+
+        <div ng-include="'templates/topbar.html'"></div>
+            
+        <!-- contents to be placed here -->
+        <div class="container">
+            <div class="col-md-12">
+                <div ng-view></div>  
+            </div>
+        </div>
+
+        <!-- Angular Application - Dev Environment -->
+            <script src="scripts/app.js"></script>
+            <script src="scripts/routes.js"></script>
+            <script src="scripts/factories/factories.js"></script>
+            <script src="scripts/services/services.js"></script>
+            <script src="scripts/directives/directives.js"></script>        
+            <script src="scripts/filters/filters.js"></script>        
+            <script src="scripts/controllers/controllers.js"></script>
+        
+        <!-- concatenated Testing Environtment -->
+            <!--<script src="dist/built.js"></script>-->
+        
+        <!-- minified Production Environment -->
+            <!--<script src="dist/built.min.js"></script>-->                
+        
+    </body>
+</html>
