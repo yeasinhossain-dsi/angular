@@ -25,30 +25,56 @@ module.exports = function(grunt){
                 }
             }
         },
+        clean: {
+            dist: ['dist/**/*']
+        },
         copy: {
             main: {
                 files: [                
                     //  Copy API
-                    {expand: true, cwd: 'app/api/', src: ['**'], dest: 'dist/api/'},
+                    {expand: true, cwd: 'app/api/', src: ['**', '.htaccess'], dest: 'dist/api/'},
+                    
                     //  Copy all the template files
                     {expand: true, cwd: 'app/templates/', src: ['**'], dest: 'dist/templates/'},
+                    
                     //  Copy all the images
                     {expand: true, cwd: 'app/assets/images/', src: ['**/*'], dest: 'dist/assets/images/'},
+                    
                     //  Copy files in the app folder
                     {expand: true, flatten: true, cwd: 'app/', src: ['*'], dest: 'dist/', filter: 'isFile'},                    
                 ]
+            }
+        },
+        processhtml: {
+            dist: {
+                files: {
+                    'dist/index.html': ['dist/index.html']
+                }
+            }
+        },
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {
+                    'dist/index.html': 'dist/index.html'                    
+                }
             }
         }
     });
     
     //  Loading grunt plugins
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
     
     //  Defining Default Task
-    grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'copy']);
-    grunt.registerTask('default', ['concat', 'uglify', 'cssmin']);
+    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'cssmin', 'copy', 'processhtml', 'htmlmin']);    
     
 };

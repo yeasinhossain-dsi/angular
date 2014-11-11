@@ -8,7 +8,11 @@
 
         <!-- stylesheets -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        
+        <!-- build:css assets/css/style.min.css -->
+            <link rel="stylesheet" href="assets/css/style.css">
+        <!-- /build -->
+        
 
         <!-- Vendor Libraries -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>    
@@ -28,7 +32,8 @@
             </div>
         </div>
 
-        <!-- Angular Application - Dev Environment -->
+        
+        <!-- build:js scripts/built.js-->
             <script src="scripts/app.js"></script>
             <script src="scripts/routes.js"></script>
             <script src="scripts/factories/factories.js"></script>
@@ -36,12 +41,7 @@
             <script src="scripts/directives/directives.js"></script>        
             <script src="scripts/filters/filters.js"></script>        
             <script src="scripts/controllers/controllers.js"></script>
-        
-        <!-- concatenated Testing Environtment -->
-            <!--<script src="dist/built.js"></script>-->
-        
-        <!-- minified Production Environment -->
-            <!--<script src="dist/built.min.js"></script>-->                
+        <!-- /build -->
         
     </body>
 </html>
