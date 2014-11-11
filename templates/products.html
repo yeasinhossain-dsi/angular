@@ -7,9 +7,12 @@
     </select>
 </div>
 <div class="col-md-9">
-    <ul>
+    <ul class="product-list">
         <li ng-repeat="d in data">
-            {{d.product_name}}
+            <img src="{{d.product_image}}">
+            <p>{{d.product_name}} <br/>
+                {{d.price|currencyFilter}}
+            </p>
         </li>
     </ul>
 </div>

@@ -16,8 +16,10 @@ module.exports = function(grunt){
                 files: {
                     'dist/built.min.js': ['dist/built.js']
                 }
-            },
-            css: {
+            }
+        },
+        cssmin: {
+            combine: {
                 files: {
                     'dist/style.min.css': ['assets/css/style.css']
                 }
@@ -28,8 +30,9 @@ module.exports = function(grunt){
     //  Loading grunt plugins
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     
     //  Defining Default Task
-    grunt.registerTask('default', ['concat', 'uglify']);
+    grunt.registerTask('default', ['concat', 'uglify', 'cssmin']);
     
 };

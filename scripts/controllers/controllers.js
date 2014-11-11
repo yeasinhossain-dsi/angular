@@ -2,6 +2,15 @@ app.controller('HomeCtrl', function($scope, $rootScope) {
     $scope.greeting = 'Home Page';    
 });
 
+app.controller('SigninCtrl', function($scope, $location, userStatusService, appFactory){
+    
+    $scope.signin = function(){
+        userStatusService.login();
+        $location.path( appFactory.AFTER_LOGIN );
+    };
+    
+});
+
 app.controller('ProductsCtrl', function($scope, $rootScope, productsService, productCategoryService) {
     $scope.greeting = 'Products Page';    
     $rootScope.main = 'Some Value';
@@ -33,7 +42,21 @@ app.controller('ProductsCtrl', function($scope, $rootScope, productsService, pro
     
 });
 
-app.controller('sidebar', function($scope, template){
+app.controller('topbarCtrl', function($scope, $rootScope, $location, userStatusService, appFactory){
+    $scope.userName = 'Yeasin Hossain';
+    $scope.isLoggedIn = userStatusService.getStatus();    
+    
+    $rootScope.$watch('isLoggedIn', function() {
+       $scope.isLoggedIn = userStatusService.getStatus();    
+    });
+    $scope.logout = function(){
+        userStatusService.logout();
+        $scope.isLoggedIn = userStatusService.getStatus();
+        $location.path( appFactory.AFTER_LOGOUT );
+    };
+});
+
+app.controller('sidebarCtrl', function($scope){
     
     $scope.menuItems = [
         {id: 1, label: 'Menu 1', 'href': 'http://google.com'},

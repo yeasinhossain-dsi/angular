@@ -19,32 +19,8 @@
     </head>
     <body>
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <div class="container-fluid">                    
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="javascript:void(0)bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="javascript:void(0)">Brand</a>
-                    </div>
-
-
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#/">Home</a></li>
-                            <li><a href="#products">Products</a></li>                            
-                        </ul>                        
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-
+        <div ng-include="'templates/topbar.html'"></div>
+            
         <!-- contents to be placed here -->
         <div class="container">
             <div class="col-md-12">
@@ -52,18 +28,20 @@
             </div>
         </div>
 
-        <!-- Angular Application -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/controllers.js"></script>
-        <script src="scripts/services/services.js"></script>
-        <script src="scripts/factories/factories.js"></script>
-        <script src="scripts/directives/directives.js"></script>        
+        <!-- Angular Application - Dev Environment -->
+            <script src="scripts/app.js"></script>
+            <script src="scripts/routes.js"></script>
+            <script src="scripts/factories/factories.js"></script>
+            <script src="scripts/services/services.js"></script>
+            <script src="scripts/directives/directives.js"></script>        
+            <script src="scripts/filters/filters.js"></script>        
+            <script src="scripts/controllers/controllers.js"></script>
         
-        <!-- concatenated -->
-        <!--<script src="dist/built.js"></script>-->
+        <!-- concatenated Testing Environtment -->
+            <!--<script src="dist/built.js"></script>-->
         
-        <!-- minified -->
-        <!--<script src="dist/built.min.js"></script>-->                
+        <!-- minified Production Environment -->
+            <!--<script src="dist/built.min.js"></script>-->                
         
     </body>
 </html>
