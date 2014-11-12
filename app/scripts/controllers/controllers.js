@@ -1,5 +1,5 @@
 app.controller('HomeCtrl', function($scope) {
-    $scope.greeting = 'Welcome home';        
+    $scope.greeting = 'Welcome homes';        
 });
 
 app.controller('SigninCtrl', function($scope, $location, userStatusService, appFactory){

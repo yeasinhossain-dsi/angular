@@ -13,6 +13,11 @@
     margin: 5px;
 }
 
+.product-list li img{
+    height: 150px;
+    width: 240px
+}
+
 .product-list li p{
     padding: 10px;
     font-size: 15px;    

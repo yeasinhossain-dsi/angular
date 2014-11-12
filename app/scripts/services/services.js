@@ -34,9 +34,9 @@ app.service('userStatusService', function($rootScope, appFactory){
 /*   
  *  Product Category Service
  */
-app.service('productCategoryService', function($http) {
+app.service('productCategoryService', function($http, appFactory) {
 
-    this.service = 'api/productCategory';
+    this.service = appFactory.API_URL( 'productCategory.json' );
     this.data = {};
     this.load = function() {
         return $http({
@@ -53,9 +53,9 @@ app.service('productCategoryService', function($http) {
 /*
  *  Product Service
  */
-app.service('productsService', function($http) {
+app.service('productsService', function($http, appFactory) {
 
-    this.service = 'api/products';
+    this.service = appFactory.API_URL( 'products.json' );
     this.data = {};
     this.load = function() {
         return $http({

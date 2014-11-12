@@ -3,6 +3,9 @@
  */
 app.factory('appFactory', function(){
     return {
+        API_URL: function( service ){
+            return 'api/' + service;
+        },
         IS_LOGGED_IN: 'isLoggedIn',
         AFTER_LOGIN: '/products',
         AFTER_LOGOUT: '/'
