@@ -22,6 +22,6 @@ app.config(function($httpProvider, $routeProvider) {
     }
             
     $routeProvider.otherwise({          
-        templateUrl: 'templates/404.html',        
+        templateUrl: 'templates/404.html'
     });
 });

@@ -1,4 +1,6 @@
-
+ANGULAR STARTUP PROJECT
+=======================
+This is an angular startup project. This gives a basic structure for beginners to start with developing with angular.
 
 HOW TO RUN
 ========

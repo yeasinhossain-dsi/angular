@@ -62,6 +62,28 @@ module.exports = function(grunt){
                     'dist/index.html': 'dist/index.html'                    
                 }
             }
+        },        
+        //  Server Configuration
+        express: {
+            server: {
+                options: {
+                    port: 4200,
+                    hostname: '127.0.0.1',
+                    bases: ['app'],
+                    open: true,
+                    livereload: true
+                }
+            }
+        },
+        watch:{ //  For live Reload
+            options: {livereload: true},
+            scripts: {
+                files: [
+                    'app/**/*.html',
+                    'app/**/*.js',
+                    'app/**/*.css',                    
+                ]                
+            }
         }
     });
     
@@ -72,7 +94,13 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-processhtml');
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');  
+    
+    grunt.loadNpmTasks('grunt-express');    
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    
+    //  Defining development server taks
+    grunt.registerTask('serve', ['express', 'watch']);    
     
     //  Defining Default Task
     grunt.registerTask('default', ['clean', 'concat', 'uglify', 'cssmin', 'copy', 'processhtml', 'htmlmin']);    
