@@ -1,8 +1,7 @@
 app.routes = {
     '/': {
         controller: 'HomeCtrl',
-        templateUrl: 'templates/home.html',
-        requireLogin: false
+        templateUrl: 'templates/home.html',        
     },
     '/products': {
         controller: 'ProductsCtrl',

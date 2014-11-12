@@ -18,14 +18,10 @@ app.controller('ProductsCtrl', function($scope, $rootScope, productsService, pro
     /*
      *  Product Category Callbacks     
      */
-    this.productSuccess = function(data){
+    this.productCategorySuccess = function(data){
         $scope.category = data.data;        
-    };
-    this.productError = function(data){
-        console.log( data );
-    };
-    
-    productCategoryService.load().then( this.productSuccess );
+    };    
+    productCategoryService.load().then( this.productCategorySuccess );
     
     /*
      *  Product Callbacks
@@ -33,12 +29,12 @@ app.controller('ProductsCtrl', function($scope, $rootScope, productsService, pro
     this.productSuccess = function(data){
         $scope.data = data.data;        
     };
-    this.productError = function(data){
-        console.log( data );
+    this.productError = function(data){        
+        $scope.data = [];
     };
     
     productsService.data = {test: true};
-    productsService.load().then(this.productSuccess, this.productError);
+    productsService.load().then(this.productSuccess, this.productError());
     
 });
 
@@ -56,16 +52,17 @@ app.controller('topbarCtrl', function($scope, $rootScope, $location, userStatusS
     };
 });
 
-app.controller('sidebarCtrl', function($scope){
+app.controller('sidebarCtrl', function($scope, $location){
     
     $scope.menuItems = [
-        {id: 1, label: 'Menu 1', 'href': 'http://google.com'},
-        {id: 2, label: 'Menu 2', 'href': 'http://yahoo.com'},
-        {id: 3, label: 'Menu 3', 'href': 'http://baidu.com'}
+        {id: 1, label: 'Google', 'href': 'http://google.com'},
+        {id: 2, label: 'Menu Yahoo', 'href': 'http://yahoo.com'},
+        {id: 3, label: 'Baidu', 'href': 'http://baidu.com'}
     ];
     
     $scope.msg = function(item){
-        console.log( item );        
+        $location.path( item.path );
+        console.log( item );
     };
     
 });

@@ -1,8 +1,11 @@
 <ul class="product-list">
     <li ng-repeat="d in data">
         <img src="{{d.product_image}}">
-        <p>{{d.product_name}} <br/>
-            {{d.price|currencyFilter}}
+        <p>
+            <strong>Product Name:</strong> {{d.product_name}} <br/>
+            <strong>Price: </strong>{{d.price|currencyFilter}} <br/>
+            <strong>Description: </strong>{{d.product_description}}
         </p>
-    </li>
+    </li>        
 </ul>
+<p ng-if="!data.length">No product</p>
