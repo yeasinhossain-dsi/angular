@@ -17,11 +17,13 @@ app.service('userStatusService', function($rootScope, appFactory){
     };
     this.login = function(){
         localStorage.setItem( appFactory.IS_LOGGED_IN , 1);
+        $rootScope.$emit( appFactory.LOGIN_EVENT );
         this.isLoggedIn = 1;
         $rootScope.isLoggedIn = 1;
     };
     this.logout = function(){
         localStorage.removeItem( appFactory.IS_LOGGED_IN );        
+        $rootScope.$emit( appFactory.LOGOUT_EVENT );
         this.isLoggedIn = 0;
         $rootScope.isLoggedIn = 0;
     };

@@ -40,19 +40,25 @@ app.controller('ProductsCtrl', function($scope, $rootScope, productsService, pro
 
 app.controller('topbarCtrl', function($scope, $rootScope, $location, userStatusService, appFactory){
     $scope.userName = 'Yeasin Hossain';
-    $scope.isLoggedIn = userStatusService.getStatus();    
-    
-    $rootScope.$watch('isLoggedIn', function() {
-       $scope.isLoggedIn = userStatusService.getStatus();    
-    });
+    $scope.isLoggedIn = userStatusService.getStatus();        
+
+    //  Actions
     $scope.logout = function(){
-        userStatusService.logout();
-        $scope.isLoggedIn = userStatusService.getStatus();
+        userStatusService.logout();        
         $location.path( appFactory.AFTER_LOGOUT );
     };
+    
+    //  Events
+    $rootScope.$on(appFactory.LOGIN_EVENT, function() {
+       $scope.isLoggedIn = userStatusService.getStatus();    
+    });    
+    $rootScope.$on(appFactory.LOGOUT_EVENT, function() {
+       $scope.isLoggedIn = userStatusService.getStatus();    
+    });    
+    
 });
 
-app.controller('sidebarCtrl', function($scope, $location){
+app.controller('sidebarCtrl', function($scope, $rootScope, $location){
     
     $scope.menuItems = [
         {id: 1, label: 'Google', 'href': 'http://google.com'},
@@ -60,8 +66,7 @@ app.controller('sidebarCtrl', function($scope, $location){
         {id: 3, label: 'Baidu', 'href': 'http://baidu.com'}
     ];
     
-    $scope.msg = function(item){
-        $location.path( item.path );
+    $scope.msg = function(item){                        
         console.log( item );
     };
     
