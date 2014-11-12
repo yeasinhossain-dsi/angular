@@ -19,7 +19,8 @@ app.factory('appFactory', function(){
  */
 app.factory('globalRequestInterceptor', ['$q', function($q) {
     return {
-        responseError: function(data){            
+        responseError: function(data){  
+            alert('OOPS...');
             return false;
         }
     };

@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute']);
+var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap']);
 
 app.run(function($rootScope, userStatusService){
     $rootScope.$on("$routeChangeStart", function(event, next) {        

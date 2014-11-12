@@ -1,3 +1,6 @@
+/*  
+ *  Sidebar Directive
+ */
 app.directive('sideBar', function(){
     return {
         restrict: 'A',        
@@ -6,11 +9,28 @@ app.directive('sideBar', function(){
 });
 
 /*
- *  
+ *  Product Gallery Directive
  */
-app.directive('productList', function(){
+app.directive('productList', function($rootScope){
     return {
-        restrict: 'E',        
-        templateUrl: 'templates/directives/productList.html'
+        restrict: 'E',
+        templateUrl: 'templates/directives/productList.html',
+        controller: function( $scope, userStatusService ){                
+            
+            /*              
+             * Actions
+             */
+            $scope.addToCart = function( product ){                                
+                    
+                var msg = product.product_name;
+                
+                if( !userStatusService.getStatus() )
+                    userStatusService.loginModal();
+                    
+                else
+                    alert(msg + ' Added to cart');
+                
+            };
+        }
     };
 });

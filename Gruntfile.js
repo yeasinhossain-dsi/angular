@@ -82,6 +82,7 @@ module.exports = function(grunt){
                     'app/**/*.html',
                     'app/**/*.js',
                     'app/**/*.css',                    
+                    'app/**/*.json',                    
                 ]                
             }
         }

@@ -1,11 +1,24 @@
-<ul class="product-list">
-    <li ng-repeat="d in data">
-        <img src="{{d.product_image}}">
-        <p>
-            <strong>Product Name:</strong> {{d.product_name}} <br/>
-            <strong>Price: </strong>{{d.price|currencyFilter}} <br/>
-            <strong>Description: </strong>{{d.product_description}}
-        </p>
-    </li>        
-</ul>
-<p ng-if="!data.length">No product</p>
+<h4>Products</h4><hr/>
+<div class="row">
+    
+    <div class="col-md-4 col-lg-4 col-xs-12 margin-bottom-10" ng-repeat="d in data">
+        <div class="product-list-item">
+            <img src="{{d.product_image}}" class="img-responsive">
+            <div class="col-md-12">
+                Product name: {{d.product_name}}
+            </div>
+            <div class="col-md-12">
+                Product Price: {{d.price|currencyFilter}}
+            </div>
+            <div class="col-md-12">
+                Product Info: {{d.product_description|descriptionTrimer}}
+            </div>            
+            <div class="col-md-12 margin-top-10">
+                <button class="btn btn-primary pull-right" ng-click="addToCart(d)">Add to cart</button>                
+            </div>            
+        </div>
+    </div>    
+    
+</div>
+
+<p ng-if="!data.length">No product found</p>
