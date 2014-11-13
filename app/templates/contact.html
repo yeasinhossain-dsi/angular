@@ -1,0 +1,40 @@
+<div class="col-md-6 col-lg-6 col-xs-12 col-md-offset-3 col-lg-offset-3" ng-controller="ContactUsCtrl">
+    
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    
+    <h4>Contact us</h4><hr/>
+    <form name="cfrm" class="contact-us-frm" novalidate ng-submit="send(cfrm)">
+        
+        <div class="col-md-12">
+            <label>Name: </label>
+            <p>
+                <input type="text" name="name" ng-model="contact.name" required>
+                <span ng-show="cfrm.name.$dirty && cfrm.name.$error.required">This field is required</span>
+            </p>
+        </div>
+        
+        <div class="col-md-12">
+            <label>Email: </label>
+            <p>
+                <input type="email" name="email" ng-model="contact.email" required>
+                <span ng-show="cfrm.email.$dirty && cfrm.email.$error.required">This field is required</span>
+                <span ng-show="cfrm.email.$dirty && cfrm.email.$error.email">Not a valid Email</span>
+            </p>
+        </div>
+        
+        <div class="col-md-12">
+            <label>Message: </label>
+            <p>
+                <textarea name="message" ng-model="contact.message" required ng-minlength="20"></textarea>
+                <span ng-show="cfrm.message.$dirty && cfrm.message.$error.required">This field is required</span>
+                <span ng-show="cfrm.message.$dirty && cfrm.message.$error.minlength">Too short</span>
+            </p>
+        </div>
+        
+        <div class="col-md-12">
+            <input type="submit" value="Send" class="btn btn-primary" ng-disabled="cfrm.$invalid">
+        </div>
+        
+    </form>
+    
+</div>

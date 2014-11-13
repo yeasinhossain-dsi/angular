@@ -6,12 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Angular App</title>
 
-        <!-- stylesheets -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-        
-        <!-- build:css assets/css/style.min.css -->
-            <link rel="stylesheet" href="assets/css/style.css">
-        <!-- /build -->
+        <!-- Vendor stylesheets -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">        
         
 
         <!-- Vendor Libraries -->
@@ -20,6 +16,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-resource.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.min.js"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.2/ui-bootstrap.min.js"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>        
+        
+        
+        <!-- build:css assets/css/style.min.css -->
+            <link rel="stylesheet" href="assets/css/style.css">
+        <!-- /build -->
     </head>
     <body>
 
@@ -33,14 +36,13 @@
         </div>
 
         
-        <!-- build:js scripts/built.js-->
-            <script src="scripts/vendors/ui-bootstrap.min.js"></script>
-            <script src="scripts/vendors/ui-bootstrap-tpls.min.js"></script>
+        <!-- build:js scripts/built.js-->            
             <script src="scripts/app.js"></script>
             <script src="scripts/routes.js"></script>
             <script src="scripts/factories/factories.js"></script>
             <script src="scripts/services/services.js"></script>
             <script src="scripts/directives/directives.js"></script>        
+            <script src="scripts/validations/validations.js"></script>        
             <script src="scripts/filters/filters.js"></script>        
             <script src="scripts/controllers/controllers.js"></script>
         <!-- /build -->

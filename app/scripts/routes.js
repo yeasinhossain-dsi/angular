@@ -11,6 +11,10 @@ app.routes = {
     '/about': {
         templateUrl: 'templates/about.html',
     },
+    '/contact': {
+        controller: 'ContactUsCtrl',
+        templateUrl: 'templates/contact.html',
+    },
     '/login': {
         templateUrl: 'templates/login.html',
     }

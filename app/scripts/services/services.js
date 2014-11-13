@@ -72,3 +72,23 @@ app.service('productsService', function($http, appFactory) {
     
     return this;
 });
+
+/*
+ *  Contact us Service
+ */
+app.service('contactUsService', function( $http, appFactory ){
+    
+    this.data = {
+        name: null,
+        email: null,
+        message: null
+    };
+    this.send = function(){
+        
+        return $http.get( appFactory.API_URL('contactus.json'), this.data );
+        
+    };
+    
+    return this;
+    
+});
