@@ -32,7 +32,7 @@ module.exports = function(grunt){
             main: {
                 files: [                
                     //  Copy API
-                    {expand: true, cwd: 'app/api/', src: ['**', '.htaccess'], dest: 'dist/api/'},
+                    {expand: true, cwd: 'app/api/', src: ['**'], dest: 'dist/api/'},
                     
                     //  Copy all the template files
                     {expand: true, cwd: 'app/templates/', src: ['**'], dest: 'dist/templates/'},

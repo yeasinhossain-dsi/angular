@@ -9,9 +9,11 @@ app.directive('badword', function(){
             ctrl.$validators.badword = function(){
                 
                 var elemVal = elm.val().split(' ');
+                elemVal.map(function(k, v){
+                    k = k.toLowerCase();
+                });
                 
-                if( elemVal.toLowerCase() in filterWords )
-                    
+                if( elemVal.hasCommon( filterWords ) )                    
                     return false;
                 
                 return true;
