@@ -25,7 +25,8 @@
         <div class="col-md-12">
             <label>Message: </label>
             <p>
-                <textarea name="message" ng-model="contact.message" required ng-minlength="20"></textarea>
+                <textarea name="message" ng-model="contact.message" badword required ng-minlength="20"></textarea>
+                <span ng-show="cfrm.message.$dirty && cfrm.message.$error.badword">don't use bad words</span>
                 <span ng-show="cfrm.message.$dirty && cfrm.message.$error.required">This field is required</span>
                 <span ng-show="cfrm.message.$dirty && cfrm.message.$error.minlength">Too short</span>
             </p>
