@@ -1,17 +1,20 @@
-app.controller('HomeCtrl', function($scope) {
+//  Home page controller
+app.controller('HomeCtrl', ['$scope' ,function($scope) {
     $scope.greeting = 'Welcome homes';
-});
+}]);
 
-app.controller('SigninCtrl', function($scope, $location, userStatusService, appFactory) {
+//  Sign in controller
+app.controller('SigninCtrl', ['$scope', '$location', 'userStatusService', 'appFactory', function($scope, $location, userStatusService, appFactory) {
 
     $scope.signin = function() {
         userStatusService.login();
         $location.path(appFactory.AFTER_LOGIN);
     };
 
-});
+}]);
 
-app.controller('ProductsCtrl', function($scope, $rootScope, productsService, productCategoryService) {
+//  Products Controller
+app.controller('ProductsCtrl', ['$scope', '$rootScope', 'productsService', 'productCategoryService', function($scope, $rootScope, productsService, productCategoryService) {
     $scope.greeting = 'Products Page';
     $rootScope.main = 'Some Value';
 
@@ -36,9 +39,10 @@ app.controller('ProductsCtrl', function($scope, $rootScope, productsService, pro
     productsService.data = {test: true};
     productsService.load().then(this.productSuccess, this.productError());
 
-});
+}]);
 
-app.controller('ContactUsCtrl', function($scope, contactUsService) {
+//  Contact us controller
+app.controller('ContactUsCtrl', ['$scope', 'contactUsService',function($scope, contactUsService) {
     var that = this;
     $scope.alerts = [];
 
@@ -78,13 +82,15 @@ app.controller('ContactUsCtrl', function($scope, contactUsService) {
     $scope.closeAlert = function(index) {
         $scope.alerts.splice(index, 1);
     };
-})
+}]);
 
-app.controller('ProductCtrl', function($scope, $routeParams) {
+//  single Product controller
+app.controller('ProductCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
     $scope.id = $routeParams.id;
-})
+}]);
 
-app.controller('topbarCtrl', function($scope, $rootScope, $location, userStatusService, appFactory) {
+// Topbar controller
+app.controller('topbarCtrl', ['$scope', '$rootScope', '$location', 'userStatusService', 'appFactory', function($scope, $rootScope, $location, userStatusService, appFactory) {
     $scope.userName = 'Yeasin Hossain';
     $scope.isLoggedIn = userStatusService.getStatus();
 
@@ -102,9 +108,10 @@ app.controller('topbarCtrl', function($scope, $rootScope, $location, userStatusS
         $scope.isLoggedIn = userStatusService.getStatus();
     });
 
-});
+}]);
 
-app.controller('sidebarCtrl', function($scope, $rootScope, $location) {
+//  Sidebar Controller
+app.controller('sidebarCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
 
     $scope.menuItems = [
         {id: 1, label: 'Google', 'href': 'http://google.com'},
@@ -116,4 +123,4 @@ app.controller('sidebarCtrl', function($scope, $rootScope, $location) {
         console.log(item);
     };
 
-});
+}]);

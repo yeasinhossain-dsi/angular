@@ -4,7 +4,7 @@ module.exports = function(grunt){
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             options: {
-              separator: ';',
+              separator: '\n',
             },
             dist: {
               src: ['app/scripts/**/*.js'],
@@ -26,25 +26,31 @@ module.exports = function(grunt){
             }
         },
         clean: {
-            dist: ['dist/**/*']
-        },
-        copy: {
             main: {
-                files: [                
-                    //  Copy API
-                    {expand: true, cwd: 'app/api/', src: ['**'], dest: 'dist/api/'},
-                    
-                    //  Copy all the template files
-                    {expand: true, cwd: 'app/templates/', src: ['**'], dest: 'dist/templates/'},
-                    
-                    //  Copy all the images
-                    {expand: true, cwd: 'app/assets/images/', src: ['**/*'], dest: 'dist/assets/images/'},
-                    
-                    //  Copy files in the app folder
-                    {expand: true, flatten: true, cwd: 'app/', src: ['*'], dest: 'dist/', filter: 'isFile'},                    
-                ]
+                dist: ['dist/**/*']
+            },
+            dev: {
+                dist: ['build/**/*']
             }
         },
+        copy: {            
+            main: {
+                files: [                                    
+                    {expand: true, cwd: 'app/api/', src: ['**'], dest: 'dist/api/'},                    
+                    {expand: true, cwd: 'app/templates/', src: ['**'], dest: 'dist/templates/'},                    
+                    {expand: true, cwd: 'app/assets/images/', src: ['**/*'], dest: 'dist/assets/images/'},                    
+                    {expand: true, flatten: true, cwd: 'app/', src: ['*'], dest: 'dist/', filter: 'isFile'},                    
+                ]
+            },
+            dev: {
+                files: [
+                    {expand: true, cwd: 'app/api/', src: ['**'], dest: 'build/api/'},                    
+                    {expand: true, cwd: 'app/templates/', src: ['**'], dest: 'build/templates/'},                    
+                    {expand: true, cwd: 'app/assets/images/', src: ['**/*'], dest: 'build/assets/images/'},                    
+                    {expand: true, flatten: true, cwd: 'app/', src: ['*'], dest: 'build/', filter: 'isFile'},                    
+                ]
+            }
+        },        
         processhtml: {
             dist: {
                 files: {
@@ -64,7 +70,7 @@ module.exports = function(grunt){
             }
         },        
         //  Server Configuration
-        express: {
+        express: {            
             server: {
                 options: {
                     port: 4200,
@@ -100,9 +106,10 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-watch');
     
     //  Defining development server taks
-    grunt.registerTask('serve', ['express', 'watch']);    
+    grunt.registerTask('serve', ['express', 'watch']);        
+    grunt.registerTask('serve-dev', ['express', 'watch']);        
     
     //  Defining Default Task
-    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'cssmin', 'copy', 'processhtml', 'htmlmin']);    
+    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'cssmin', 'copy:main', 'processhtml', 'htmlmin']);    
     
 };

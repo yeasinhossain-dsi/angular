@@ -1,3 +1,17 @@
+/*
+ * 
+ * @param {type} param1
+ * @param {type} param2 testing directive
+ */
+app.directive('addMore', function(){
+    
+    return {
+        'restrict': 'EA',
+        templateUrl: 'templates/directives/test-directive.html'
+    }
+    
+});
+
 /*  
  *  Sidebar Directive
  */
@@ -11,11 +25,11 @@ app.directive('sideBar', function(){
 /*
  *  Product Gallery Directive
  */
-app.directive('productList', function($rootScope){
+app.directive('productList', function(){
     return {
         restrict: 'E',
         templateUrl: 'templates/directives/productList.html',
-        controller: function( $scope, userStatusService ){                
+        controller: ['$scope', 'userStatusService', function( $scope, userStatusService ){                
             
             /*              
              * Actions
@@ -31,6 +45,6 @@ app.directive('productList', function($rootScope){
                     alert(msg + ' Added to cart');
                 
             };
-        }
+        }]
     };
 });

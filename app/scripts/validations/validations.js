@@ -9,7 +9,7 @@ app.directive('badword', function(){
             ctrl.$validators.badword = function(){
                 
                 var elemVal = elm.val().split(' ');
-                elemVal.map(function(k, v){
+                elemVal.map(function(k){
                     k = k.toLowerCase();
                 });
                 

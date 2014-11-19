@@ -1,7 +1,7 @@
 /* 
  *  User status Service
  */
-app.service('userStatusService', function($rootScope, $modal, appFactory){
+app.service('userStatusService', ['$rootScope', '$modal', 'appFactory',function($rootScope, $modal, appFactory){
     
     this.username = null;
     this.password = null;
@@ -32,13 +32,13 @@ app.service('userStatusService', function($rootScope, $modal, appFactory){
     
     return this;
     
-});
+}]);
 
 
 /*   
  *  Product Category Service
  */
-app.service('productCategoryService', function($http, appFactory) {
+app.service('productCategoryService', ['$http', 'appFactory', function($http, appFactory) {
 
     this.service = appFactory.API_URL( 'productCategory.json' );
     this.data = {};
@@ -52,12 +52,12 @@ app.service('productCategoryService', function($http, appFactory) {
     };
     
     return this;
-});
+}]);
 
 /*
  *  Product Service
  */
-app.service('productsService', function($http, appFactory) {
+app.service('productsService', ['$http', 'appFactory', function($http, appFactory) {
 
     this.service = appFactory.API_URL( 'products.json' );
     this.data = {};
@@ -71,12 +71,12 @@ app.service('productsService', function($http, appFactory) {
     };
     
     return this;
-});
+}]);
 
 /*
  *  Contact us Service
  */
-app.service('contactUsService', function( $http, appFactory ){
+app.service('contactUsService', ['$http', 'appFactory', function( $http, appFactory ){
     
     this.data = {
         name: null,
@@ -91,4 +91,4 @@ app.service('contactUsService', function( $http, appFactory ){
     
     return this;
     
-});
+}]);

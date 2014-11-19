@@ -1,6 +1,6 @@
 var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap']);
 
-app.run(function($rootScope, userStatusService){
+app.run(['$rootScope', 'userStatusService', function($rootScope, userStatusService){
     $rootScope.$on("$routeChangeStart", function(event, next) {        
         
         //  Security Check for private pages
@@ -11,9 +11,9 @@ app.run(function($rootScope, userStatusService){
         }        
         
     });
-});
+}]);
 
-app.config(function($httpProvider, $routeProvider) {
+app.config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
 
     $httpProvider.interceptors.push('globalRequestInterceptor');
 
@@ -24,4 +24,4 @@ app.config(function($httpProvider, $routeProvider) {
     $routeProvider.otherwise({          
         templateUrl: 'templates/404.html'
     });
-});
+}]);
